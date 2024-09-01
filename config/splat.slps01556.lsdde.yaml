@@ -1,0 +1,111 @@
+name: LSD Dream Emulator
+sha1: 76322eeade5ebb22dca57fdeac7d68c30f06308d
+options:
+  basename: lsdde
+  platform: psx
+  compiler: GCC
+
+  base_path: ..
+  target_path: disk/SLPS_015.56
+  asm_path:    asm/lsdde/
+  asset_path:  assets/
+  src_path:    src/lsdde/
+  # build_path: build
+  # create_asm_dependencies: True
+  symbol_addrs_path:           config/symbols.slps01556.lsdde.txt
+  undefined_funcs_auto_path:   config/undefined_funcs_auto.slps01556.lsdde.txt
+  undefined_syms_auto_path:    config/undefined_syms_auto.slps01556.lsdde.txt
+  ld_script_path: lsdde.ld
+
+  find_file_boundaries: False
+  pair_rodata_to_text: False
+  migrate_rodata_to_functions: True
+  gp_value: 0x8008A808
+
+  o_as_suffix: False
+  use_legacy_include_asm: False
+
+  asm_function_macro: glabel
+  asm_jtbl_label_macro: jlabel
+  asm_data_macro: dlabel
+
+  section_order: [".rodata", ".text", ".data", ".sdata", ".sbss", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+
+  extensions_path: tools/splat_ext
+
+  subalign: 2
+
+  string_encoding: ASCII
+  data_string_encoding: ASCII
+  rodata_string_guesser_level: 2
+  data_string_guesser_level: 2
+segments:
+  - name: header
+    type: header
+    start: 0x0
+
+  - name: main
+    type: code
+    start: 0x800
+    vram: 0x80010000
+    align: 4
+    # bss_size: Please fill out this value when you figure out the bss size
+    subsegments:
+      - [0x800, rodata] # psyq_2258
+      - [0xA8C, rodata] # 8220
+      - [0xABC, rodata] # psyq_GsLinkObject4
+      - [0xF28, rodata] # psyq_15d04
+      - [0xFA4, rodata] # 1677c
+      - [0xFD8, rodata] # 179d8
+      - [0x1764, rodata]
+      - [0x1890, rodata]
+      - [0x19DC, rodata]
+      - [0x1A90, rodata]
+      - [0x1C0C, rodata]
+      - [0x1E28, rodata]
+      - [0x1EF4, rodata]
+      - [0x1F88, .rodata, DreamSys] # DreamSys
+      - [0x206C, rodata] # greyman
+      - [0x20DC, asm, main]
+      - [0x2258, asm, psyq_2258]
+      - [0x8220, asm, 8220]
+      - [0xAD64, asm, psyq_rcpolyf3]
+      - [0xB0D4, asm, psyq_rcpolyf4]
+      - [0xB554, asm, psyq_rcpolyg3]
+      - [0xC2B4, asm, psyq_rcpolyft3]
+      - [0xC7D4, asm, psyq_rcpolygt3]
+      - [0xD294, asm]
+      - [0xF770, asm, psyq_GsLinkObject4]
+      - [0x15D04, asm, psyq_15d04]
+      - [0x16334, asm, class_16334]
+      - [0x166ac, asm, psyq_PadInit]
+      - [0x1677c, asm]
+      - [0x171e0, asm]
+      - [0x179d8, asm]
+      - [0x272c8, asm, psyq_SpuSetMute]
+      - [0x2c054, asm]
+      - [0x3197c, asm, psyq_memset]
+
+      - [0x39c80, asm, psyq_rand]
+      - [0x39cb4, c, StageGrid]
+      - [0x39e08, asm, class_39e08]
+
+      - [0x48F74, c, DreamSys]
+      - [0x4CD08, asm, 4cd08]
+      - [0x4D7DC, asm, 4d7dc]
+
+      - [0x57070, data]
+      - [0x769D4, .data, StageGrid]
+      - [0x76DC8, data] #class_39e08
+      - [0x783dc, data, DreamSys] # DreamSys
+      - [0x79528, data]
+      - [0x7b008, sdata]
+      - [0x7b3c0, sdata, DreamSys] # DreamSys
+      - [0x7b3f8, sdata]
+      - [0x7b420, sbss]
+      - [0x7B468, sbss] #psyq_rand
+      - [0x7B46C, sbss]
+      - [0x7b4b4, .sbss, DreamSys] # DreamSys
+      - [0x7b4cc, sbss]
+  - [0x7B800]

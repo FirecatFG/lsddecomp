@@ -1,0 +1,135 @@
+BMemPMgrInit = 0x80017a20;
+BasicClass__func_17eb0 = 0x80017eb0;
+BasicClass__BasicClass = 0x80017ef8;
+BasicClass__func_17f2c = 0x80017f2c;
+BasicClass__func_17f98 = 0x80017f98;
+BasicClass__func_17ff0 = 0x80017ff0;
+BasicClass__func_18040 = 0x80018040;
+BasicClass__func_180bc = 0x800180bc;
+BasicClass__func_180fc = 0x800180fc;
+BasicClass__func_1811c = 0x8001811c;
+BasicClass__func_1813c = 0x8001813c;
+BasicClass__func_1816c = 0x8001816c;
+BasicClass__func_182cc = 0x800182cc;
+BasicClass__func_18350 = 0x80018350;
+BasicClass__func_18358 = 0x80018358;
+memset = 0x8004117C;
+
+rand = 0x80049480;
+srand = 0x800494a8;
+
+GetStageGridDimensionsTable = 0x800494bc;
+GetStageGridDimensions = 0x800494d8;
+GetStageChunkFromMood = 0x8004950c;
+GetMoodFromStageChunk = 0x800495b8;
+
+DreamSys__DreamSys = 0x800587f0;
+DreamSys__func_588ec = 0x800588ec;
+DreamSys__func_58968 = 0x80058968;
+DreamSys__TimerTick = 0x80058d94;
+DreamSys__WallLink = 0x80058fac;
+DreamSys__GetSetDreamTimeLimit = 0x80059328;
+DreamSys__InitNewGame = 0x8005a258;
+DreamSys__GetSetScreenShake = 0x8005a2d0;
+DreamSys__AdvanceDay = 0x8005a304;
+DreamSys__StartDay = 0x8005a368;
+DreamSys__EndDay = 0x8005a41c;
+DreamSys__GetCinematic = 0x8005a4e8;
+DreamSys__InitSpawnLoc = 0x8005a508;
+DreamSys__DynamicLink = 0x8005a580;
+DreamSys__StaticWallLink = 0x8005a5d8;
+DreamSys__LoadNextFlashback = 0x8005a63c;
+ExecuteLink = 0x8005a928;
+DreamSys__ProcessChunkChange = 0x8005afdc;
+DreamSys__InstanceEffectsOnJournal = 0x8005b03c;
+DreamSys__GetPreviousDayMood = 0x8005b1f4;
+DreamSys__InitMoodContibutors = 0x8005b2f4;
+DreamSys__LogChunkMood = 0x8005b3a4;
+DreamSys__LogInstanceMood = 0x8005b3f0;
+DreamSys__UpdateDreamChart = 0x8005b420;
+DreamSys__GetDreamColor = 0x8005b4e0;
+CalcDreamColor = 0x8005B518;
+DreamSys__ClearMoodGraph = 0x8005b5a4;
+DreamSys__LogMood = 0x8005b5b8;
+DreamSys__GetMoodAverage = 0x8005b5f0;
+CalcMoodAxis = 0x8005b66c;
+DreamSys__CalcUnlockScore = 0x8005b6e0;
+DreamSys__AddFlashback = 0x8005b74c;
+DreamSys__FlashbackSaving = 0x8005b81c;
+Get_DreamSys_vtable = 0x8005ba40;
+InitNavChallengesArray = 0x8005ba50;
+CalcNavigationScore = 0x8005ba7c;
+GetRandomSpawnFromStage = 0x8005bb30;
+TestForStaticLink = 0x8005bcb4;
+Test4TunnelLinks = 0x8005bcf8;
+Test4InstantTeleporters = 0x8005bf74;
+Test4StaircaseNodes = 0x8005bfdc;
+GetStaticSpawn = 0x8005c150;
+GenerateInitialSpawn = 0x8005c28c;
+IsDaySpecial = 0x8005c438;
+SetTeleportsEnabled = 0x8005c6d8;
+
+// First short is amount of columns, second is amount of rows
+// third and fourth is a bool determining whether the stage is "tower-like"
+STAGE_GRID_DIMENSIONS = 0x800861d4; // type:s16 size:112
+
+// Low byte is dynamic effect, high byte is upper effect
+STG00_CHUNK_MOODS = 0x80086244; // type:s16 size:12
+STG01_CHUNK_MOODS = 0x80086250; // type:s16 size:12
+STG02_CHUNK_MOODS = 0x8008625c; // type:s16 size:72
+STG03_CHUNK_MOODS = 0x800862a4; // type:s32 size:512
+STG04_CHUNK_MOODS = 0x800864a4; // type:s16 size:60
+STG05_CHUNK_MOODS = 0x800864e0; // type:s16 size:60
+STG06_CHUNK_MOODS = 0x8008651c; // type:s16 size:12
+STG07_CHUNK_MOODS = 0x80086528; // type:s16 size:12
+STG08_CHUNK_MOODS = 0x80086534; // type:s16 size:8
+STG09_CHUNK_MOODS = 0x8008653c; // type:s16 size:4
+STG10_CHUNK_MOODS = 0x80086540; // type:s16 size:8
+STG11_CHUNK_MOODS = 0x80086548; // type:s16 size:24
+STG12_CHUNK_MOODS = 0x80086560; // type:s16 size:40
+STG13_CHUNK_MOODS = 0x80086588; // type:s16 size:8
+STAGE_CHUNK_MOODS = 0x80086590; // type:s32 size:56
+
+DREAMSYS_METHODS = 0x80087bdc;
+
+// Array of shorts defining dream length is seconds
+STAGE_TIME_LIMITS = 0x80087f14; // type:s16 size:28
+
+// First short is relative X adjustment, second is Y off ground, third is Z.
+SPAWN_POS_ADJUST = 0x80087f30; // type:s16 size:222
+
+// First short, Low = Chunk column, High = Chunk row
+// Second short, Low = Tile column, High = Tile row
+// Third short, Low = Adjustment index (see above), High = unused
+STG00_SPAWNPOINTS = 0x80088010; // type:s16 size:48
+STAGE_SPAWNPOINTS = 0x800885b8;
+LEN_STAGE_SPAWNPOINTS = 0x800885f0; // type:s8 size:14
+
+// Same as STAGE_SPAWNPOINTS, but this time third short high represents a nav challenge index.
+STG00_PERMALINK_SPAWNS = 0x80088600; // type:s16 size:18
+STAGE_PERMALINK_SPAWNS = 0x80088664;
+
+//First two shorts are like STAGE_SPAWNPOINTS, but a tile value of 0xFFFF means "any tile"
+//Third short low is target stage, while the high byte is an index from the spawn table above
+STG00_PERMALINK_TRIGGERS = 0x8008869c; // type:s16 size:18
+STG02_PERMALINK_TRIGGERS = 0x800886b0;
+STG03_PERMALINK_TRIGGERS = 0x800886bc;
+STG04_PERMALINK_TRIGGERS = 0x800886c4;
+STG05_PERMALINK_TRIGGERS = 0x800886dc;
+STG06_PERMALINK_TRIGGERS = 0x800886e8;
+STG09_PERMALINK_TRIGGERS = 0x800886f0;
+STG10_PERMALINK_TRIGGERS = 0x800886f8;
+STG11_PERMALINK_TRIGGERS = 0x80088700;
+STG12_PERMALINK_TRIGGERS = 0x80088708;
+STAGE_PERMALINK_TRIGGERS = 0x80088710; // type:s32 size:56
+LEN_STAGE_PERMALINK_TRIGGERS = 0x80088748; // type:s8 size:14
+
+// Array of shorts defining special days (day value is 1-indexed)
+SPECIAL_DAYS = 0x80088ccc; // type:s16 size:84
+
+//Meaning unknown, gets compared against the current dream color.
+SPECIAL_COLORS = 0x80088d20; // type:s8 size:8
+
+Small__rand = 0x8008ac68;
+gpNavChallengesComplete = 0x8008acb4;
+gpDinamicLinkPenalty = 0x8008acb8;
