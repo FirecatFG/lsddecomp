@@ -31,3 +31,7 @@ If everthing went well, now you can simply run
 to rebuild a copy of the SLPS_015 file on the `build` folder. You can check that the two SLPS files are the identical with the command
 
     make check
+
+##
+
+Special thanks to the PS1 decompilation community, whose tools and know-how this project would not be possible without.

@@ -7,7 +7,7 @@
 
 #include "StageGrid.h"
 
-INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_80058774);
+INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", New_DreamSys);
 
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__DreamSys);
 
@@ -455,7 +455,7 @@ INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__AddFlashback);
 //TODO: Define Player Character
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__FlashbackSaving);
 
-INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005B8FC);
+INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__ResetFlashbackList);
 
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005B904);
 
@@ -463,7 +463,7 @@ INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005B990);
 
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005BA20);
 
-struct vtable_DreamSys *Get_DreamSys_vtable(void) {
+struct vtable_DreamSys *Get_vtable_DreamSys(void) {
     return &DREAMSYS_METHODS;
 }
 

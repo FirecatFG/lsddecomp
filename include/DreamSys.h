@@ -297,7 +297,7 @@ void DreamSys__AddFlashback(DreamSys *this, s32 stage, PlayerSpawnPoint* pos, s3
 
 /// @brief Gets the jumptable of "Virtual methods" assigned to the DreamSys class.
 /// @return Pointer to vtable_DreamSys
-struct vtable_DreamSys *Get_DreamSys_vtable(void);
+struct vtable_DreamSys *Get_vtable_DreamSys(void);
 
 
 

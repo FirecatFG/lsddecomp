@@ -92,8 +92,9 @@ segments:
       - [0x39e08, asm, class_39e08]
 
       - [0x48F74, c, DreamSys]
-      - [0x4CD08, asm, 4cd08]
-      - [0x4D7DC, asm, 4d7dc]
+      - [0x4CD08, asm, 4cd08] #DreamAux
+      - [0x4D7DC, asm, Entity]
+      - [0x55DD4, asm] #class
 
       - [0x57070, data]
       - [0x769D4, .data, StageGrid]

@@ -23,6 +23,7 @@ GetStageGridDimensions = 0x800494d8;
 GetStageChunkFromMood = 0x8004950c;
 GetMoodFromStageChunk = 0x800495b8;
 
+New_DreamSys = 0x80058774;
 DreamSys__DreamSys = 0x800587f0;
 DreamSys__func_588ec = 0x800588ec;
 DreamSys__func_58968 = 0x80058968;
@@ -56,7 +57,8 @@ CalcMoodAxis = 0x8005b66c;
 DreamSys__CalcUnlockScore = 0x8005b6e0;
 DreamSys__AddFlashback = 0x8005b74c;
 DreamSys__FlashbackSaving = 0x8005b81c;
-Get_DreamSys_vtable = 0x8005ba40;
+DreamSys__ResetFlashbackList = 0x8005B8FC;
+Get_vtable_DreamSys = 0x8005ba40;
 InitNavChallengesArray = 0x8005ba50;
 CalcNavigationScore = 0x8005ba7c;
 GetRandomSpawnFromStage = 0x8005bb30;
@@ -67,7 +69,19 @@ Test4StaircaseNodes = 0x8005bfdc;
 GetStaticSpawn = 0x8005c150;
 GenerateInitialSpawn = 0x8005c28c;
 IsDaySpecial = 0x8005c438;
+
 SetTeleportsEnabled = 0x8005c6d8;
+
+New_Entity = 0x8005cfdc;
+Entity__Entity = 0x8005d068;
+Entity__GetMoodEffect = 0x8005d944;
+Entity__GetUnlockEffect = 0x8005d95c;
+Entity__GetLinkStage = 0x8005d994;
+Entity__GetEventVideo = 0x8005d9d0;
+Get_vtable_Entity = 0x8005e150;
+
+New_class_65650 = 0x800655d4;
+class_65650__Constructor = 0x80065650;
 
 // First short is amount of columns, second is amount of rows
 // third and fourth is a bool determining whether the stage is "tower-like"
