@@ -455,7 +455,9 @@ INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__AddFlashback);
 //TODO: Define Player Character
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__FlashbackSaving);
 
-INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", DreamSys__ResetFlashbackList);
+void DreamSys__ResetFlashbackList(DreamSys *this) {
+    this->amountFlashbacksAvailable = 0;
+}
 
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005B904);
 
@@ -555,5 +557,53 @@ INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", func_8005C118);
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", GetStaticSpawn);
 
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", GenerateInitialSpawn);
+/*s32 GenerateInitialSpawn(PlayerSpawnPoint *target, s32 *timeLimit, MoodGraphPoint *mood, s32 day) {
+    s16 sp10;
+    StageSpawn *newSpawn;
+    s32 defaultStage;
+    s32 stg;
+    s32 i;
+    u8 max_i;
 
+    stg = GetStageChunkFromMood(&sp10, mood);
+    if (stg >= 0) {
+        *timeLimit = (s32) STAGE_TIME_LIMITS[stg];
+        max_i = (u8) LEN_STAGE_SPAWNPOINTS[stg];
+        newSpawn = STAGE_SPAWNPOINTS[stg];
+        for (i = 0; i < max_i; i++){
+            if ( sp10 != *(short*) &(newSpawn->chunk)) {
+                break;
+            }
+            newSpawn += 1;
+        }
+        newSpawn = &STAGE_SPAWNPOINTS[stg][(s16) sp10 % (s32) max_i];
+        target->chunk = newSpawn->chunk;
+        target->tile = newSpawn->tile;
+        target->position = SPAWN_POS_ADJUST[newSpawn->adjustment];
+        return stg;
+    }
+    defaultStage = GetRandomSpawnFromStage(target, stg, day);
+    *timeLimit = (s32) STAGE_TIME_LIMITS[defaultStage];
+    return defaultStage;
+}*/
+
+//Requires G4
 INCLUDE_ASM("asm/lsdde/nonmatchings/DreamSys", IsDaySpecial);
+/*MoodGraphPoint *IsDaySpecial(CinematicCall *cinematic, s32 day) {
+    s16 *daysTable;
+    s32 i;
+
+    daysTable = SPECIAL_DAYS;
+
+    for(i = 0; i < 42; i++){
+
+        if (day == daysTable[i]) {
+            cinematic->entry = rand() % 6;
+            cinematic->bank = i % 12;
+            return &D_8008ABF4; //sdata_specialMood
+        }
+
+    }
+
+    return NULL;
+}*/

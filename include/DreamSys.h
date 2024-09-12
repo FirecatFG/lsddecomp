@@ -168,14 +168,33 @@ typedef struct StageSpawn{
 	s8 extra;
 }StageSpawn;
 
+typedef struct StaticLinkTrigger{
+	struct MapChunk chunk;
+	union TriggerTile{
+		struct MapTile axis;
+		s16 value;
+	} tile;
+	s8 stage;
+	s8 spawnpointIndex;
+}StaticLinkTrigger;
+
 //Jumptable holding all of DreamSys "virtual" methods
 extern struct vtable_DreamSys DREAMSYS_METHODS;
+
+extern s16 STAGE_TIME_LIMITS[];
 
 extern struct RelativePos SPAWN_POS_ADJUST[];
 
 extern StageSpawn* STAGE_SPAWNPOINTS[];
-
 extern s8 LEN_STAGE_SPAWNPOINTS[];
+
+extern StageSpawn* STAGE_PERMALINK_SPAWNS[];
+extern StaticLinkTrigger* STAGE_PERMALINK_TRIGGERS[];
+extern s8 LEN_STAGE_PERMALINK_TRIGGERS[];
+
+extern s16 SPECIAL_DAYS[];
+
+extern s8 SPECIAL_COLORS[];
 
 /* This function might be called when the player hits a wall?
 It tries to do an static link first, then a dynamic one */
@@ -224,7 +243,7 @@ bool DreamSys__StaticWallLink(DreamSys *this, PlayerSpawnPoint *currentPos);
 /// @return False if it is the end of the flashback session, True otherwise
 bool DreamSys__LoadNextFlashback(DreamSys *this, bool unknown);
 
-// No idea
+// Called during some links, but no idea what it actually does
 bool ExecuteLink(DreamSys *system, s32 stage, s32 unk1, s32 unk2);
 
 //DreamSys__ProcessChunkChange(DreamSys *this,);
@@ -294,6 +313,9 @@ void DreamSys__CalcUnlockScore(DreamSys *this);
 /// @param time Time limit of the flashback
 /// @param day Day number of the flashback 
 void DreamSys__AddFlashback(DreamSys *this, s32 stage, PlayerSpawnPoint* pos, s32 *angles, s32 unknown, s32 time, s32 day);
+
+/// @brief Called by the Grey Man to "erase" your flashback log
+void DreamSys__ResetFlashbackList(DreamSys *this);
 
 /// @brief Gets the jumptable of "Virtual methods" assigned to the DreamSys class.
 /// @return Pointer to vtable_DreamSys
